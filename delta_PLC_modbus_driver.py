@@ -107,11 +107,8 @@ def main():
         byte_list = list(range(5, 20, 10))
         print(len(byte_list))
         plc.write_plc_registers(byte_list, 'd0')
-
         sleep(1)
 
 
 if __name__ == '__main__':
     main()
-
-
