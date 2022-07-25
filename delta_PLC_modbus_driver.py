@@ -5,11 +5,8 @@ from pyModbusTCP.client import ModbusClient
 
 class PLCDelta(ModbusClient):
 
-    def __init__(self, ip_addr='127.0.0.1', port=10002):
-        try:
-            ModbusClient.__init__(self, host=ip_addr, port=port, auto_open=True, auto_close=False)
-        except ValueError:
-            print("Error with host or port params")
+    def __init__(self, ip_addr='127.0.0.1', port=502):
+        ModbusClient.__init__(self, host=ip_addr, port=port, auto_open=True, auto_close=False)
 
     @classmethod
     def convert_addr(cls, addr: str) -> int:
