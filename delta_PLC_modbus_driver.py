@@ -92,11 +92,9 @@ class PLCDelta(ModbusClient):
                             reg_addr: str,
                             n: int = 1):
         # check max range of address
-        if reg_addr[0].upper() == 'Y' and \
-                int(reg_addr[1:]) + n > 63:
+        if reg_addr[0].upper() == 'Y' and int(reg_addr[1:]) + n > 63:
             n = n - (int(reg_addr[1:]) + n - 63)
-        if reg_addr[0].upper() == 'D' and \
-                int(reg_addr[1:]) + n > 29999:
+        if reg_addr[0].upper() == 'D' and int(reg_addr[1:]) + n > 29999:
             n = n - (int(reg_addr[1:]) + n - 29999)
         # check length of values list
         if len(list_of_values) < n:
